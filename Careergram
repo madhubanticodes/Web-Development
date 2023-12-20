@@ -1,0 +1,32 @@
+//Registration module
+<?php
+1 $insert = false;
+2 if(isset($_POST['name'])){
+   $server = "localhost";
+   $username = "root";
+   $password = "";
+3 if(empty($name)||empty($email)||empty($password)||empty($age)||empty($subject)||empty(phone))
+4 {	echo "FILL THE FIELDS";
+  }
+5  else if(!filter_var($mail,FILTER_VALIDATE_EMAIL))
+   {
+6 echo "wrong email";
+   }
+7 else{
+    $sql="INSERT INTO `careergram`.`careergram` (`name`,`password`,`age`, `subject`, `email`, `phone`,`other`, `dt`) VALUES ('$name','$password', '$age', '$subject', '$email', '$phone','$desc', current_timestamp()); ";
+    //echo $sql;   
+8    if($con->query($sql) == true){
+9       //echo "Successfully inserted";
+       $insert = true; 
+    }
+10    else{
+        echo "ERROR: $sql <br> $con->error";
+       }
+11   }
+12 }
+ ?>
+
+
+
+
+
